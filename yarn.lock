@@ -221,6 +221,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@imzdev/vue3-recaptcha-v2@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@imzdev/vue3-recaptcha-v2@workspace:."
+  dependencies:
+    "@vitejs/plugin-vue": ^4.3.4
+    conventional-changelog-cli: ^4.1.0
+    typescript: ^5.2.2
+    vite: ^4.4.9
+    vite-plugin-dts: ^3.5.3
+    vue: ^3.3.4
+  peerDependencies:
+    vue: ^3
+  languageName: unknown
+  linkType: soft
+
 "@isaacs/cliui@npm:^8.0.2":
   version: 8.0.2
   resolution: "@isaacs/cliui@npm:8.0.2"
@@ -2743,21 +2758,6 @@ __metadata:
   checksum: 09a0fb256223b4d3ba9674fc3fec8b82d71b91532131298131b1b63214312dc86bc2942e5971e0771ccba15b82bf09fd5873459d223d0122dd4feea5c57e6ec9
   languageName: node
   linkType: hard
-
-"vue3-recaptcha-v2@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "vue3-recaptcha-v2@workspace:."
-  dependencies:
-    "@vitejs/plugin-vue": ^4.3.4
-    conventional-changelog-cli: ^4.1.0
-    typescript: ^5.2.2
-    vite: ^4.4.9
-    vite-plugin-dts: ^3.5.3
-    vue: ^3.3.4
-  peerDependencies:
-    vue: ^3
-  languageName: unknown
-  linkType: soft
 
 "vue@npm:^3.3.4":
   version: 3.3.4

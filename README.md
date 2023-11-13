@@ -11,7 +11,7 @@ reCAPTCHA v2 for Vue3 and Nuxt3.
 install the packge from `yarn`:
 
 ```sh
-$ yarn add vue3-recaptcha-v2
+$ yarn add @imzdev/vue3-recaptcha-v2
 ```
 
 In `Vue3`, add it to your `main.ts file`:
@@ -20,7 +20,7 @@ In `Vue3`, add it to your `main.ts file`:
 import { createApp } from "vue";
 import App from "./App.vue";
 
-import { install } from "vue3-recaptcha-v2";
+import { install } from "@imzdev/vue3-recaptcha-v2";
 
 createApp(App)
   .use(install, {
@@ -36,7 +36,7 @@ The file name must contain the `.client`.
 
 ```typescript
 // <ProjectRoot>/plugins/recaptcha.client.ts
-import { install } from "vue3-recaptcha-v2";
+import { install } from "@imzdev/vue3-recaptcha-v2";
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(install, {
@@ -56,7 +56,7 @@ For more information, including the props to `change the language(hl option)`, c
 
 ```vue
 <script setup lang="ts">
-import { RecaptchaV2 } from "vue3-recaptcha-v2";
+import { RecaptchaV2 } from "@imzdev/vue3-recaptcha-v2";
 
 const handleWidgetId = (widgetId: number) => {
   console.log("Widget ID: ", widgetId);
@@ -86,7 +86,7 @@ const handleLoadCallback = (response: unknown) => {
 
 ```vue
 <script setup lang="ts">
-import { RecaptchaV2, useRecaptcha } from "vue3-recaptcha-v2";
+import { RecaptchaV2, useRecaptcha } from "@imzdev/vue3-recaptcha-v2";
 
 const { handleExecute } = useRecaptcha();
 
@@ -107,7 +107,7 @@ Resets the reCAPTCHA widget.
 
 ```vue
 <script setup lang="ts">
-import { RecaptchaV2, useRecaptcha } from "vue3-recaptcha-v2";
+import { RecaptchaV2, useRecaptcha } from "@imzdev/vue3-recaptcha-v2";
 
 const { handleReset } = useRecaptcha();
 
@@ -128,7 +128,7 @@ Gets the response for the reCAPTCHA widget.
 
 ```vue
 <script setup lang="ts">
-import { RecaptchaV2, useRecaptcha } from "vue3-recaptcha-v2";
+import { RecaptchaV2, useRecaptcha } from "@imzdev/vue3-recaptcha-v2";
 
 const { handleGetResponse } = useRecaptcha();
 

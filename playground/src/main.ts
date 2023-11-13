@@ -6,6 +6,6 @@ const app = createApp(App);
 
 app
   .use(install, {
-    sitekey: "",
+    sitekey: "6LeqfE0mAAAAAKMxor5n8YsS4lzUosBAK1-Ht0Ju",
   })
   .mount("#app");

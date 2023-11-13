@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onBeforeMount, onMounted } from "vue";
+import { defineExpose, ref, onBeforeMount, onMounted, onBeforeUnmount } from "vue";
 import { RECAPTCHA_SCRIPT_ID } from "../constants";
 import { useInstall } from "./../composables";
 import { ReCaptchaError } from "./../utils";
@@ -13,11 +13,13 @@ const props = defineProps<{
   tabindex?: number;
   language?: string;
 }>();
+
 const emit = defineEmits<{
   (e: "widgetId", value: number): void;
   (e: "loadCallback", response: unknown): void;
   (e: "expiredCallback"): void;
   (e: "errorCallback"): void;
+  (e: "resetCallback"): void;
 }>();
 
 const handleRenderRecaptcha = () => {
@@ -45,13 +47,36 @@ const handleRenderRecaptcha = () => {
   });
 };
 
+const getWidgetId = () => {
+  return widgetId.value;
+};
+
+const resetWidget = () => {
+  if (!window.grecaptcha) throw new ReCaptchaError("reCAPTCHA is not loaded");
+  window.grecaptcha.reset(widgetId.value);
+  emit("resetCallback")
+}
+
+/**
+ * Make methods visible outside component
+ */
+defineExpose({ getWidgetId, resetWidget });
+
 onBeforeMount(() => {
   handleGenerateScript(props.language);
 });
+
 onMounted(() => {
   document.getElementById(RECAPTCHA_SCRIPT_ID)!.onload = () => {
     handleRenderRecaptcha();
   };
+});
+
+onBeforeUnmount(() => {
+  const existingScript = document.getElementById(RECAPTCHA_SCRIPT_ID);
+  if (existingScript) {
+    existingScript.remove();
+  }
 });
 </script>
 
